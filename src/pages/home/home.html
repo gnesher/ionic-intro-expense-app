@@ -1,17 +1,83 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Add Expense</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-input type="number" placeholder="Enter expense" [(ngModel)]="expense"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <calcButton value="1" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="2" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="3" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <calcButton value="4" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="5" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="6" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <calcButton value="7" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="8" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="9" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <calcButton value="." (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="0" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+      <ion-col>
+        <calcButton value="<" (clicked)="updateExpense($event)"></calcButton>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-select [(ngModel)]="category" interface="action-sheet">
+              <ion-option>Home</ion-option>
+              <ion-option>Car</ion-option>
+              <ion-option>Food</ion-option>
+              <ion-option>Going Out</ion-option>
+            </ion-select>          
+      </ion-col>
+      <ion-col>
+          <button ion-button (click)="addExpense()">Add Expense</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

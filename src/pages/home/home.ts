@@ -1,5 +1,7 @@
+import { LocalstorageProvider } from './../../providers/localstorage/localstorage';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,50 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  private expense: string = '0';
+  private category: string;
+  private location: any = {};
 
+  constructor(public navCtrl: NavController,
+              private storage: LocalstorageProvider,
+              private geolocation: Geolocation
+    ) {
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.location.lat = resp.coords.latitude
+      this.location.lon =  resp.coords.longitude
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+
+  }
+
+  private updateExpense(value) {
+    if (value !== '<') {
+      if (this.expense === '0') {
+        this.expense = value;
+      } else {
+        this.expense = this.expense + value;
+      }
+    } else {
+      if (this.expense.length === 1) {
+        this.expense = '0';
+      } else {
+        this.expense = this.expense.slice(0, -1);
+      }
+    }
+  }
+
+  addExpense() {
+    this.storage.setNewItem({
+      spent: parseInt(this.expense, 10),
+      category: this.category,
+      date: Date.now(),
+      location: this.location
+    });
+    
+    this.expense = '0';
+    this.category = 'Home';
   }
 
 }

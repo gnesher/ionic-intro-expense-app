@@ -1,11 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Expenses
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let item of data">{{item.spent | currency: 'ILS'}} spent on {{item.category}} on the {{item.date | date}}</ion-item>
+  </ion-list>
 </ion-content>
