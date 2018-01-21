@@ -67,15 +67,17 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-          <ion-select [(ngModel)]="category" interface="action-sheet">
+          <ion-select [(ngModel)]="category" placeholder="Select Category" interface="action-sheet">
               <ion-option>Home</ion-option>
               <ion-option>Car</ion-option>
               <ion-option>Food</ion-option>
               <ion-option>Going Out</ion-option>
             </ion-select>          
       </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
-          <button ion-button (click)="addExpense()">Add Expense</button>
+          <button ion-button (click)="addExpense()" class="add-expense">Add Expense</button>
       </ion-col>
     </ion-row>
   </ion-grid>
