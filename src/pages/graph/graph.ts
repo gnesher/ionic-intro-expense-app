@@ -34,6 +34,11 @@ export class GraphPage {
     this.spendingGraph = new Chart(this.spendingGraphElement.nativeElement, {
 
       type: 'pie',
+      options: {
+        legend: {
+          display: false
+        }
+      },
       data: {
         labels: CATEGORIES,
         datasets: [{
@@ -51,7 +56,7 @@ export class GraphPage {
             "#FFCE56",
             "#FF6384",
           ]
-        }]
+        }],
       }
 
     });

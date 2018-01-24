@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-input type="number" placeholder="Enter expense" [(ngModel)]="expense"></ion-input>
+        <ion-input type="text" placeholder="Enter expense" [(ngModel)]="expense"></ion-input>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -59,7 +59,7 @@
         <calcButton value="0" (clicked)="updateExpense($event)"></calcButton>
       </ion-col>
       <ion-col>
-        <calcButton value="<" (clicked)="updateExpense($event)"></calcButton>
+        <calcButton value="<" (clicked)="deleteChar($event)"></calcButton>
       </ion-col>
     </ion-row>
   </ion-grid>
