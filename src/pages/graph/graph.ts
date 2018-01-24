@@ -7,10 +7,10 @@ import _ from 'lodash';
 const CATEGORIES = ["Home", "Car", "Food", "Going Out"];
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-graph',
+  templateUrl: 'graph.html'
 })
-export class ContactPage {
+export class GraphPage {
 
   spendingGraph: any;
 
